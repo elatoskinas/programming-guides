@@ -16,5 +16,5 @@ Programming guides & cheatsheets for the Kotlin language.
 
 /* Nested block comment
    /* nested poition */
-*/
+end of nested block. */
 ```

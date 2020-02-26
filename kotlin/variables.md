@@ -35,7 +35,7 @@ fun nullable(a: Int): Int? {
 }
 ```
 
-Auto-cast to non-nullable:
+Auto-cast to n
 ```kotlin
 fun useNull(a: Int, b: Int) {
     val num1 = nullable(a)
@@ -54,8 +54,32 @@ fun useNull(a: Int, b: Int) {
 }
 ```
 
+## Types
+### Type Checking
+Standard type checking:
+```kotlin
+    if (obj is Int) {
+        // ...
+    }
 
-## String templates
+    // Check that object is not of type
+    if (obj !is Float) {
+        // ...
+    }
+}
+```
+
+Automatic cast:
+```kotlin
+    // No need to cast explicitly
+    if (obj is String && obj.length > 0) {
+        return "Length: $obj.length"
+    }
+```
+
+
+
+### String templates
 ```kotlin
 val str1 = "num: $num" // num: 4
 val str2 = "${str1.replace("num", "number")} !" // number: 4 !
