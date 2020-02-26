@@ -80,23 +80,22 @@ println("${Byte.MAX_VALUE}, ${Byte.MIN_VALUE}")     // 2^7 - 1 (127), -2^7
 ### Type Checking
 Standard type checking:
 ```kotlin
-    if (obj is Int) {
-        // ...
-    }
+if (obj is Int) {
+    // ...
+}
 
-    // Check that object is not of type
-    if (obj !is Float) {
-        // ...
-    }
+// Check that object is not of type
+if (obj !is Float) {
+    // ...
 }
 ```
 
 Automatic cast:
 ```kotlin
-    // No need to cast explicitly
-    if (obj is String && obj.length > 0) {
-        return "Length: $obj.length"
-    }
+// No need to cast explicitly
+if (obj is String && obj.length > 0) {
+    return "Length: $obj.length"
+}
 ```
 
 
