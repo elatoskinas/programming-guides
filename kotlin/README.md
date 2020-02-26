@@ -18,3 +18,10 @@ Programming guides & cheatsheets for the Kotlin language.
    /* nested poition */
 end of nested block. */
 ```
+
+## Idioms & Conventions
+< To be filled in a new (?) file >
+
+Links:
+https://kotlinlang.org/docs/reference/coding-conventions.html
+https://kotlinlang.org/docs/reference/idioms.html

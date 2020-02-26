@@ -35,7 +35,7 @@ fun nullable(a: Int): Int? {
 }
 ```
 
-Auto-cast to n
+Auto-cast to non-nullable
 ```kotlin
 fun useNull(a: Int, b: Int) {
     val num1 = nullable(a)
@@ -55,6 +55,28 @@ fun useNull(a: Int, b: Int) {
 ```
 
 ## Types
+### Basic Types
+#### Numbers
+Declarations:
+```kotlin
+val one = 1 // Int
+val oneLong = 1L // Long
+val oneByte: Byte = 1 // Byte
+val oneFloat = 1f // Float
+val oneDouble = 1.0 // Double
+
+val longValue = 3000000000 // Automatically assigned Long type
+```
+
+Max & min values:
+```kotlin
+println("${Int.MAX_VALUE}, ${Int.MIN_VALUE}")       // 2^31 - 1, -2^31
+println("${Long.MAX_VALUE}, ${Long.MIN_VALUE}")     // 2^63 - 1, -2^63
+println("${Float.MAX_VALUE}, ${Float.MIN_VALUE}")   // 9223372036854775807, -9223372036854775808
+println("${Double.MAX_VALUE}, ${Double.MIN_VALUE}") // 3.4028235e38, 1.4e-45
+println("${Byte.MAX_VALUE}, ${Byte.MIN_VALUE}")     // 2^7 - 1 (127), -2^7
+```
+
 ### Type Checking
 Standard type checking:
 ```kotlin
