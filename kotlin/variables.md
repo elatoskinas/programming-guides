@@ -137,11 +137,110 @@ Comparisons:
 - `NaN` considered greater than any other element including `POSITIVE_INFINITY`
 - `-0.0` is considered less than `0.0`
 
+#### Unsigned Integers (experimental)
+`UByte`, `UShort`, `UInt`, `ULong`
+
+```kotlin
+val b: UByte = 1u
+val s: UShort = 1u
+val l: ULong = 1u
+val a1 = 42u // UInt (since constant fits in UInt)
+val a2 = 0xFFFF_FFFF_FFFFu // ULong (since constant does not fit in UInt)
+val a3 = 1UL // ULong
+```
+
+### Characters
+Characters & Numbers:
+```kotlin
+fun decimalDigitValue(c: Char): Int {
+    if (c !in '0'..'9')
+        throw IllegalArgumentException("Out of range)
+    return c.toInt() - '0'.toInt() // Explicit conversion to numbers
+}
+
+// Charracters cannot be treated directly as numbers
+val c: Char = 'c'
+
+// Will throw error, since Char and Int incompatible types
+if (c == 3) {
+    // ...
+}
+```
+
+Escape sequences:
+- `\t`: Tab
+- `\b`: Backscape
+- `\n`: Newline
+- `\r`: Carriage Return
+- `\'`, `\"`, `\\`, `\$`
+
+### Booleans
+Values: `true`, `false`
+Operators: `||, &&, !`
+
+### Arrays
+`Array` class
+```kotlin
+val array = arrayOf(1, 2, 3) // [1, 2, 3]
+val nullArray = arrayOfNulls<Int>(4) // [null, null, null, null]
+val lambdaArray = Array(5) { i -> (i * i) } // 0, 1, 4, 9, 16
+
+// Specialized array classes
+val intArray: IntArray = intArrayOf(4, 6, 7)       // [4, 6, 7]
+val shortArray: ShortArray = shortArrayOf(9, 1, 2) // [9, 1, 2]
+val byteArray: ByteArray = byteArrayOf(2, 2, 3)    // [2, 2, 3]
+val intArrayZeros: IntArray = IntArray(4)          // [0, 0, 0, 0]
+```
+
+(...)
+
 ### Strings
-#### String templates
+Strings are immutable.
+
+Escaped & Raw Strings:
+```kotlin
+// Escaped String (may have escaped characters in them)
+val s = "Hello World!\n"
+
+// Raw strings
+// (no escaping and can containg newlines and any other characters)
+val text = """
+    for (c in "foo")
+        print(c)
+```
+
+Operations:
+```kotlin
+val str = "abc"
+val strChar = str[1] // 'b' (second character)
+val concat = str + 2 + 'c' // abc2c
+
+// Will print a, b and then c on newlines
+for (c in str) {
+    println(c)
+}
+
+// Removes leading whitespace
+val text = """
+    |Lorem ipsum
+    |A B C
+    |D
+""".trimMargin()
+
+println(text)
+```
+
+String templates:
 ```kotlin
 val str1 = "num: $num" // num: 4
+
 val str2 = "${str1.replace("num", "number")} !" // number: 4 !
+
+// Arbitrary expression
+val s = "abcde"
+val str3 = "$s.length is ${s.length}" // abcde.length is 5
+
+val str4 = "${'$'}10" // Escaping dollar sign
 ```
 
 ### Type Checking
