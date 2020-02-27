@@ -192,8 +192,6 @@ val byteArray: ByteArray = byteArrayOf(2, 2, 3)    // [2, 2, 3]
 val intArrayZeros: IntArray = IntArray(4)          // [0, 0, 0, 0]
 ```
 
-(...)
-
 ### Strings
 Strings are immutable.
 
@@ -207,6 +205,7 @@ val s = "Hello World!\n"
 val text = """
     for (c in "foo")
         print(c)
+"""
 ```
 
 Operations:
