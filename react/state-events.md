@@ -139,7 +139,7 @@ this.setState({
 # Events
 * Function passed in as **event handler** rather than string
 
-**DOM vs JSX**:
+**Listeners (DOM vs JSX)**:
 ```html
 <!-- DOM -->
 <button onclick="playVideo()">
@@ -153,6 +153,63 @@ this.setState({
 ```
 
 **Preventing default behavior**:
+```html
+<!-- DOM -->
+<a href="#" onclick="console.log('print'); return false">
+    Click me
+</a>
+```
+
 ```javascript
-// ...
+// React
+function Link() {
+    function handleClick(e) {
+        // e is a SyntheticEvent
+        e.preventDefault();
+        console.log('print');
+    }
+
+    return (
+        <a href="#" onclick={handleClick}>
+          Click me
+        </a>
+    )
+}
+```
+
+**this binding:**
+* Generally, when refering to method without `()` after, the method should be bound.
+
+```javascript
+class Comp extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {isOn: true}
+
+        // Binding necessary to make 'this' work in the callback
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.setState(state => ({
+            isOn: !state.isOn
+        }));
+    }
+
+    // ...
+}
+
+```
+
+**Passing arguments:**
+```javascript
+// The following are equivalent and will result in the event e
+// being passed as a seconod argument after ID.
+// The second option passes on the event e implicitly.
+(
+    <button onClick={(e) => this.selectId(id, e)}>Select ID</button>
+    <button onClick={this.selectId.bind(this, id)}>Select ID</button>
+)
 ```
