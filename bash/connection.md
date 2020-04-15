@@ -5,6 +5,10 @@ user@domain
 ```
 
 ## ssh
+Securely connects to hostname and executes command.
+
+If command ommited, simply connects to the host.
+
 ```bash
 ssh <hostname> <command>
 ```
@@ -20,6 +24,8 @@ ssh -L <port>:localhost:<port> <hostname> <command>
 ```
 
 ## scp
+Copies file from source to destination securely.
+
 ```bash
 scp <source> <destination>
 ```
